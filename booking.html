@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now - EFZEE COTTAGE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">EFZEE COTTAGE</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="booking.html" class="active">Booking</a>
+            <div class="nav-user-menu">
+                <button id="loginBtn" class="nav-button">Login / Sign Up</button>
+                <button id="logoutBtn" class="nav-button logout" style="display: none;">Logout</button>
+            </div>
+        </div>
+    </nav>
+    <div id="loginMessage" class="login-message" style="display: none;">
+        <p>Please login to make a booking</p>
+    </div>
+
+    <!-- Booking Section -->
+    <section class="booking-section">
+        <div class="booking-container">
+            <h1>Book Your Stay</h1>
+            <p>Experience tranquility and comfort at EFZEE COTTAGE</p>
+
+            <!-- Interactive Calendar -->
+            <div class="calendar-container">
+                <div id="calendar"></div>
+            </div>
+
+            <!-- Booking Form -->
+            <form id="bookingForm" class="booking-form" style="display: none;">
+                <div class="form-group">
+                    <label>Check-in Date</label>
+                    <input type="date" id="checkIn" required>
+                </div>
+                <div class="form-group">
+                    <label>Check-out Date</label>
+                    <input type="date" id="checkOut" required>
+                </div>
+                <div class="form-group">
+                    <label>Number of Guests</label>
+                    <input type="number" id="guests" min="1" max="10" required>
+                </div>
+                <div class="form-group">
+                    <label>Room Setup Preferences</label>
+                    <select id="roomSetup">
+                        <option value="standard">Standard Setup</option>
+                        <option value="family">Family Setup</option>
+                        <option value="group">Group Setup</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Additional Amenities</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="amenities" value="breakfast"> Breakfast Service</label>
+                        <label><input type="checkbox" name="amenities" value="parking"> Parking Space</label>
+                        <label><input type="checkbox" name="amenities" value="wifi"> Premium WiFi</label>
+                        <label><input type="checkbox" name="amenities" value="cleaning"> Daily Cleaning</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Special Requests</label>
+                    <textarea id="specialRequests" rows="3"></textarea>
+                </div>
+
+                <!-- Price Breakdown -->
+                <div class="price-breakdown">
+                    <h3>Price Breakdown</h3>
+                    <div class="price-item">
+                        <span>Base Rate</span>
+                        <span id="baseRate">RM 0.00</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Additional Services</span>
+                        <span id="additionalServices">RM 0.00</span>
+                    </div>
+                    <div class="price-item total">
+                        <span>Total</span>
+                        <span id="totalPrice">RM 0.00</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Proceed to Payment</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="login">Login</button>
+                <button class="tab-btn" data-tab="signup">Sign Up</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+
+            <!-- Sign Up Form -->
+            <form id="signupForm" class="auth-form" style="display: none;">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+    <script src="payment.js"></script>
+</body>
+</html>
